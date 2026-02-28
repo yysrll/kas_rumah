@@ -9,6 +9,9 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get appTitle => 'Kas Rumah';
+
+  @override
   String get welcomeTitle => 'Selamat datang di Kas Rumah';
 
   @override

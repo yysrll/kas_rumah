@@ -94,6 +94,12 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('id')];
 
+  /// No description provided for @appTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Kas Rumah'**
+  String get appTitle;
+
   /// No description provided for @welcomeTitle.
   ///
   /// In id, this message translates to:
