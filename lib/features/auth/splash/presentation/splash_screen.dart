@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:kas_rumah/gen/assets.gen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset('assets/logo.svg', width: 120, height: 120),
+              AppAsset.logo.svg(width: 120, height: 120),
               const SizedBox(height: 24),
               Text(context.strings.appTitle, style: context.textTheme.h1),
               const SizedBox(height: 8),
