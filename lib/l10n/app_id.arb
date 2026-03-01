@@ -13,5 +13,6 @@
   "registerTitle": "Buat akun baru",
   "nameLabel": "Nama",
   "confirmPasswordLabel": "Konfirmasi kata sandi",
-  "alreadyHaveAccount": "Sudah punya akun? Masuk"
+  "alreadyHaveAccount": "Sudah punya akun? Masuk",
+  "workspaceTitle": "Workspace"
 }

@@ -183,6 +183,12 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Sudah punya akun? Masuk'**
   String get alreadyHaveAccount;
+
+  /// No description provided for @workspaceTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Workspace'**
+  String get workspaceTitle;
 }
 
 class _AppLocalizationsDelegate

@@ -54,4 +54,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get alreadyHaveAccount => 'Sudah punya akun? Masuk';
+
+  @override
+  String get workspaceTitle => 'Workspace';
 }
