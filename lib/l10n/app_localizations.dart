@@ -189,6 +189,42 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Workspace'**
   String get workspaceTitle;
+
+  /// No description provided for @overviewTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Ikhtisar'**
+  String get overviewTitle;
+
+  /// No description provided for @transactionsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Transaksi'**
+  String get transactionsTitle;
+
+  /// No description provided for @budgetsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Anggaran'**
+  String get budgetsTitle;
+
+  /// No description provided for @insightsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Wawasan'**
+  String get insightsTitle;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Pengaturan'**
+  String get settingsTitle;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Profil'**
+  String get profileTitle;
 }
 
 class _AppLocalizationsDelegate

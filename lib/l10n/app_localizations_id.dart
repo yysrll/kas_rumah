@@ -57,4 +57,22 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get workspaceTitle => 'Workspace';
+
+  @override
+  String get overviewTitle => 'Ikhtisar';
+
+  @override
+  String get transactionsTitle => 'Transaksi';
+
+  @override
+  String get budgetsTitle => 'Anggaran';
+
+  @override
+  String get insightsTitle => 'Wawasan';
+
+  @override
+  String get settingsTitle => 'Pengaturan';
+
+  @override
+  String get profileTitle => 'Profil';
 }

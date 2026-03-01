@@ -14,5 +14,11 @@
   "nameLabel": "Nama",
   "confirmPasswordLabel": "Konfirmasi kata sandi",
   "alreadyHaveAccount": "Sudah punya akun? Masuk",
-  "workspaceTitle": "Workspace"
+  "workspaceTitle": "Workspace",
+  "overviewTitle": "Ikhtisar",
+  "transactionsTitle": "Transaksi",
+  "budgetsTitle": "Anggaran",
+  "insightsTitle": "Wawasan",
+  "settingsTitle": "Pengaturan",
+  "profileTitle": "Profil"
 }
