@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/components/email_input.dart';
 import 'package:kas_rumah/features/auth/components/password_input.dart';
+import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -31,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     return AppScaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(kDefaultScreenPadding),
           child: Form(
             key: _formKey,
             child: Column(
@@ -50,6 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                 ShadButton(
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {}
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => WorkspacePage()),
+                      (Route<dynamic> route) => false,
+                    );
                   },
                   child: Text(context.strings.loginButton),
                 ),
