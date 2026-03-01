@@ -2,5 +2,16 @@
   "appTitle": "Kas Rumah",
   "welcomeTitle": "Selamat datang di Kas Rumah",
   "tagline": "Kelola anggaran keluarga lebih rapi, demi masa depan yang lebih pasti.",
-  "taglineAlternative": "Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali."
+  "taglineAlternative": "Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali.",
+  "loginTitle": "Masuk ke akun Anda",
+  "emailLabel": "Email",
+  "emailMissingError": "Email tidak boleh kosong",
+  "emailInvalidError": "Email tidak valid",
+  "passwordLabel": "Kata sandi",
+  "loginButton": "Masuk",
+  "registerButton": "Daftar",
+  "registerTitle": "Buat akun baru",
+  "nameLabel": "Nama",
+  "confirmPasswordLabel": "Konfirmasi kata sandi",
+  "alreadyHaveAccount": "Sudah punya akun? Masuk"
 }

@@ -21,4 +21,37 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get taglineAlternative =>
       'Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali.';
+
+  @override
+  String get loginTitle => 'Masuk ke akun Anda';
+
+  @override
+  String get emailLabel => 'Email';
+
+  @override
+  String get emailMissingError => 'Email tidak boleh kosong';
+
+  @override
+  String get emailInvalidError => 'Email tidak valid';
+
+  @override
+  String get passwordLabel => 'Kata sandi';
+
+  @override
+  String get loginButton => 'Masuk';
+
+  @override
+  String get registerButton => 'Daftar';
+
+  @override
+  String get registerTitle => 'Buat akun baru';
+
+  @override
+  String get nameLabel => 'Nama';
+
+  @override
+  String get confirmPasswordLabel => 'Konfirmasi kata sandi';
+
+  @override
+  String get alreadyHaveAccount => 'Sudah punya akun? Masuk';
 }
