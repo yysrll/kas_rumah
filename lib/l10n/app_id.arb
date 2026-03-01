@@ -16,9 +16,15 @@
   "alreadyHaveAccount": "Sudah punya akun? Masuk",
   "workspaceTitle": "Workspace",
   "overviewTitle": "Ikhtisar",
+  "overviewMonthlySnapshotTitle": "Ringkasan Bulanan",
+  "overviewAvgDailySpend": "Rata-rata Pengeluaran Harian",
+  "overviewWithinBudgetCaption": "Kerja bagus! Pengeluaran Anda masih dalam anggaran.",
+  "overviewExceedingBudgetCaption": "Waspada! Pengeluaran Anda sudah melebihi anggaran.",
+  "overviewTransactionsCaption": "Ringkasan Transaksi",
   "transactionsTitle": "Transaksi",
   "budgetsTitle": "Anggaran",
   "insightsTitle": "Wawasan",
   "settingsTitle": "Pengaturan",
-  "profileTitle": "Profil"
+  "profileTitle": "Profil",
+  "seeMore": "Lihat lebih"
 }

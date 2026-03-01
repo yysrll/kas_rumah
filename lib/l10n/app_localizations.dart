@@ -196,6 +196,36 @@ abstract class AppLocalizations {
   /// **'Ikhtisar'**
   String get overviewTitle;
 
+  /// No description provided for @overviewMonthlySnapshotTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Ringkasan Bulanan'**
+  String get overviewMonthlySnapshotTitle;
+
+  /// No description provided for @overviewAvgDailySpend.
+  ///
+  /// In id, this message translates to:
+  /// **'Rata-rata Pengeluaran Harian'**
+  String get overviewAvgDailySpend;
+
+  /// No description provided for @overviewWithinBudgetCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Kerja bagus! Pengeluaran Anda masih dalam anggaran.'**
+  String get overviewWithinBudgetCaption;
+
+  /// No description provided for @overviewExceedingBudgetCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Waspada! Pengeluaran Anda sudah melebihi anggaran.'**
+  String get overviewExceedingBudgetCaption;
+
+  /// No description provided for @overviewTransactionsCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Ringkasan Transaksi'**
+  String get overviewTransactionsCaption;
+
   /// No description provided for @transactionsTitle.
   ///
   /// In id, this message translates to:
@@ -225,6 +255,12 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Profil'**
   String get profileTitle;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In id, this message translates to:
+  /// **'Lihat lebih'**
+  String get seeMore;
 }
 
 class _AppLocalizationsDelegate

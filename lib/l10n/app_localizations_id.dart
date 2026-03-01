@@ -62,6 +62,23 @@ class AppLocalizationsId extends AppLocalizations {
   String get overviewTitle => 'Ikhtisar';
 
   @override
+  String get overviewMonthlySnapshotTitle => 'Ringkasan Bulanan';
+
+  @override
+  String get overviewAvgDailySpend => 'Rata-rata Pengeluaran Harian';
+
+  @override
+  String get overviewWithinBudgetCaption =>
+      'Kerja bagus! Pengeluaran Anda masih dalam anggaran.';
+
+  @override
+  String get overviewExceedingBudgetCaption =>
+      'Waspada! Pengeluaran Anda sudah melebihi anggaran.';
+
+  @override
+  String get overviewTransactionsCaption => 'Ringkasan Transaksi';
+
+  @override
   String get transactionsTitle => 'Transaksi';
 
   @override
@@ -75,4 +92,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get profileTitle => 'Profil';
+
+  @override
+  String get seeMore => 'Lihat lebih';
 }
