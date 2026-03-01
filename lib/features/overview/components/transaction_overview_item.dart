@@ -25,9 +25,21 @@ class TransactionOverviewItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Sewa Apart',
-                  style: context.textTheme.p.copyWith(fontSize: 12),
+                Row(
+                  spacing: 12,
+                  children: [
+                    Expanded(
+                      child: Text('Sewa Apart', style: context.textTheme.p),
+                    ),
+                    Text(
+                      '-IDR 500K',
+                      style: context.textTheme.small.copyWith(
+                        fontSize: 12,
+                        color: Colors.red.shade600,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   'Sewa Apart bulan Maret 2026',
@@ -51,14 +63,6 @@ class TransactionOverviewItem extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-          Text(
-            '-IDR 500K',
-            style: context.textTheme.small.copyWith(
-              fontSize: 12,
-              color: Colors.red.shade600,
-              fontWeight: FontWeight.w500,
             ),
           ),
         ],
