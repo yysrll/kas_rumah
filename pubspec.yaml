@@ -51,6 +51,7 @@ flutter_gen:
     exclude: []
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/
