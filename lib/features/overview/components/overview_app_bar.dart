@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -10,7 +11,10 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
     final theme = context.shadTheme;
 
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: EdgeInsets.symmetric(
+        horizontal: kDefaultScreenPadding,
+        vertical: 12,
+      ),
       child: Row(
         spacing: 16,
         children: [
