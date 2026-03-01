@@ -1,0 +1,1 @@
+const double kDefaultScreenPadding = 24.0;
