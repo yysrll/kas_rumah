@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/auth/splash/presentation/splash_screen.dart';
+import 'package:kas_rumah/features/auth/presentation/splash/splash_page.dart';
 import 'package:kas_rumah/l10n/app_localizations.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           theme: Theme.of(context),
-          home: const SplashScreen(),
+          home: const SplashPage(),
         );
       }
     );

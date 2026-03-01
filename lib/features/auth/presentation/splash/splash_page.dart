@@ -1,18 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/features/auth/presentation/login/login_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacity;
@@ -35,7 +37,9 @@ class _SplashScreenState extends State<SplashScreen>
     // Simulasi loading atau inisialisasi Supabase
     Timer(const Duration(seconds: 3), () {
       // Ganti dengan route navigasi kamu (misal: GoRouter.of(context).go('/login'))
-      debugPrint("Navigasi ke halaman utama");
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
     });
   }
 
@@ -47,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: FadeTransition(
         opacity: _opacity,
         child: Center(
