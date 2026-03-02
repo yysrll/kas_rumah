@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/features/budget/presentation/budget_page.dart';
 import 'package:kas_rumah/features/insight/presentation/insight_page.dart';
 import 'package:kas_rumah/features/overview/presentation/overview_page.dart';
 import 'package:kas_rumah/features/transaction/presentation/transaction_page.dart';
@@ -23,7 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const OverviewPage(),
     const TransactionPage(),
     const InsightPage(),
-    const Center(child: Text("Budget - Atur Anggaran")),
+    const BudgetPage(),
   ];
 
   @override
