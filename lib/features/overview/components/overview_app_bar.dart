@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/features/setting/presentation/setting_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -31,16 +32,23 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           Expanded(child: Text('Hi, Yusril', style: theme.textTheme.lead)),
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              borderRadius: theme.radius,
-              color: theme.colorScheme.accent,
-            ),
-            child: Icon(
-              LucideIcons.bolt,
-              size: 24,
-              color: theme.colorScheme.accentForeground,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const SettingsPage()));
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: theme.radius,
+                color: theme.colorScheme.accent,
+              ),
+              child: Icon(
+                LucideIcons.bolt,
+                size: 24,
+                color: theme.colorScheme.accentForeground,
+              ),
             ),
           ),
         ],
