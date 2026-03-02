@@ -22,6 +22,8 @@
   "overviewExceedingBudgetCaption": "Waspada! Pengeluaran Anda sudah melebihi anggaran.",
   "overviewTransactionsCaption": "Ringkasan Transaksi",
   "transactionsTitle": "Transaksi",
+  "transactionsFilterByMonth": "Filter berdasarkan bulan",
+  "transactionsNoData": "Belum ada transaksi untuk bulan ini.",
   "budgetsTitle": "Anggaran",
   "insightsTitle": "Wawasan",
   "settingsTitle": "Pengaturan",

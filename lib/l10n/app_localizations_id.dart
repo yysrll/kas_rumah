@@ -82,6 +82,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get transactionsTitle => 'Transaksi';
 
   @override
+  String get transactionsFilterByMonth => 'Filter berdasarkan bulan';
+
+  @override
+  String get transactionsNoData => 'Belum ada transaksi untuk bulan ini.';
+
+  @override
   String get budgetsTitle => 'Anggaran';
 
   @override

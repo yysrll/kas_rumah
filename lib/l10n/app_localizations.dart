@@ -232,6 +232,18 @@ abstract class AppLocalizations {
   /// **'Transaksi'**
   String get transactionsTitle;
 
+  /// No description provided for @transactionsFilterByMonth.
+  ///
+  /// In id, this message translates to:
+  /// **'Filter berdasarkan bulan'**
+  String get transactionsFilterByMonth;
+
+  /// No description provided for @transactionsNoData.
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada transaksi untuk bulan ini.'**
+  String get transactionsNoData;
+
   /// No description provided for @budgetsTitle.
   ///
   /// In id, this message translates to:
