@@ -273,6 +273,12 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Lihat lebih'**
   String get seeMore;
+
+  /// No description provided for @selectMonth.
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih bulan'**
+  String get selectMonth;
 }
 
 class _AppLocalizationsDelegate

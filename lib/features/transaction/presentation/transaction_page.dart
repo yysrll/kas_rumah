@@ -3,7 +3,7 @@ import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/overview/components/transaction_overview_item.dart';
-import 'package:kas_rumah/features/transaction/components/month_filter_form.dart';
+import 'package:kas_rumah/components/input/month_filter_form.dart';
 
 class TransactionPage extends StatelessWidget {
   const TransactionPage({super.key});
@@ -19,7 +19,11 @@ class TransactionPage extends StatelessWidget {
           spacing: 12,
           children: [
             SizedBox(height: 12),
-            MonthFilterForm(),
+            Text(context.strings.transactionsFilterByMonth),
+            MonthFilterForm(
+              selectedMonth: DateTime.now(),
+              onMonthSelected: (_) {},
+            ),
             Expanded(
               child: ListView.separated(
                 itemCount: 20,

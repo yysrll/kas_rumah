@@ -101,4 +101,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get seeMore => 'Lihat lebih';
+
+  @override
+  String get selectMonth => 'Pilih bulan';
 }
