@@ -25,7 +25,21 @@
   "transactionsFilterByMonth": "Filter berdasarkan bulan",
   "transactionsNoData": "Belum ada transaksi untuk bulan ini.",
   "budgetsTitle": "Anggaran",
+  "budgetRemaining": "Sisa {remaining}",
+  "@budgetRemaining": {
+    "placeholders": {
+      "remaining": {
+        "type": "num",
+        "format": "compactCurrency",
+        "optionalParameters": {
+          "symbol": "IDR ",
+          "decimalDigits": 0
+        }
+      }
+    }
+  },
   "insightsTitle": "Wawasan",
+  "insightTotalSpent": "Total Terpakai",
   "settingsTitle": "Pengaturan",
   "profileTitle": "Profil",
   "seeMore": "Lihat lebih",

@@ -91,7 +91,23 @@ class AppLocalizationsId extends AppLocalizations {
   String get budgetsTitle => 'Anggaran';
 
   @override
+  String budgetRemaining(num remaining) {
+    final intl.NumberFormat remainingNumberFormat =
+        intl.NumberFormat.compactCurrency(
+          locale: localeName,
+          symbol: 'IDR ',
+          decimalDigits: 0,
+        );
+    final String remainingString = remainingNumberFormat.format(remaining);
+
+    return 'Sisa $remainingString';
+  }
+
+  @override
   String get insightsTitle => 'Wawasan';
+
+  @override
+  String get insightTotalSpent => 'Total Terpakai';
 
   @override
   String get settingsTitle => 'Pengaturan';

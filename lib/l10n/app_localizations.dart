@@ -250,11 +250,23 @@ abstract class AppLocalizations {
   /// **'Anggaran'**
   String get budgetsTitle;
 
+  /// No description provided for @budgetRemaining.
+  ///
+  /// In id, this message translates to:
+  /// **'Sisa {remaining}'**
+  String budgetRemaining(num remaining);
+
   /// No description provided for @insightsTitle.
   ///
   /// In id, this message translates to:
   /// **'Wawasan'**
   String get insightsTitle;
+
+  /// No description provided for @insightTotalSpent.
+  ///
+  /// In id, this message translates to:
+  /// **'Total Terpakai'**
+  String get insightTotalSpent;
 
   /// No description provided for @settingsTitle.
   ///
