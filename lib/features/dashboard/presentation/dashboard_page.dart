@@ -3,6 +3,7 @@ import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/overview/presentation/overview_page.dart';
+import 'package:kas_rumah/features/transaction/presentation/transaction_page.dart';
 
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -19,7 +20,7 @@ class _DashboardPageState extends State<DashboardPage> {
   // Daftar halaman untuk setiap tab
   final List<Widget> _pages = [
     const OverviewPage(),
-    const Center(child: Text("Transaction - Transaksi Terbaru")),
+    const TransactionPage(),
     const Center(child: Text("Insight - Analisis Pengeluaran")),
     const Center(child: Text("Budget - Atur Anggaran")),
   ];
