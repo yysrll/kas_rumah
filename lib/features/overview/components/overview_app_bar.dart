@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/setting/presentation/setting_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -9,7 +9,7 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -22,7 +22,7 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              borderRadius: theme.radius,
+              borderRadius: BorderRadius.circular(8),
               color: theme.colorScheme.primary.withValues(alpha: 0.2),
             ),
             child: Icon(
@@ -31,7 +31,7 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: theme.colorScheme.primary,
             ),
           ),
-          Expanded(child: Text('Hi, Yusril', style: theme.textTheme.lead)),
+          Expanded(child: Text('Hi, Yusril', style: theme.textTheme.titleMedium)),
           GestureDetector(
             onTap: () {
               Navigator.of(
@@ -41,13 +41,13 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                borderRadius: theme.radius,
-                color: theme.colorScheme.accent,
+                borderRadius: BorderRadius.circular(8),
+                color: theme.colorScheme.primary,
               ),
               child: Icon(
                 LucideIcons.bolt,
                 size: 24,
-                color: theme.colorScheme.accentForeground,
+                color: theme.colorScheme.onPrimary,
               ),
             ),
           ),

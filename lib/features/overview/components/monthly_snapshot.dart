@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 
 class MonthlySnapshot extends StatelessWidget {
   const MonthlySnapshot({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
 
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: Colors.green.shade50,
-        borderRadius: theme.radius,
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.green.shade100),
       ),
       child: Column(
@@ -21,8 +20,8 @@ class MonthlySnapshot extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: theme.colorScheme.background,
-              borderRadius: theme.radius,
+              color: theme.colorScheme.surface,
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.green.shade200),
             ),
             child: Column(
@@ -30,7 +29,10 @@ class MonthlySnapshot extends StatelessWidget {
               children: [
                 Text(
                   context.strings.overviewMonthlySnapshotTitle,
-                  style: theme.textTheme.p,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: Colors.green.shade800,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Row(
@@ -39,11 +41,13 @@ class MonthlySnapshot extends StatelessWidget {
                       child: Text.rich(
                         TextSpan(
                           text: 'IDR 970K',
-                          style: theme.textTheme.table.copyWith(fontSize: 20),
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            fontSize: 20,
+                          ),
                           children: [
                             TextSpan(
                               text: ' /IDR 1.100K',
-                              style: theme.textTheme.muted.copyWith(
+                              style: theme.textTheme.labelSmall?.copyWith(
                                 color: Colors.grey.shade600,
                                 fontSize: 12,
                               ),
@@ -59,7 +63,7 @@ class MonthlySnapshot extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade100,
-                        borderRadius: theme.radius,
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         spacing: 8,
@@ -76,7 +80,7 @@ class MonthlySnapshot extends StatelessWidget {
                           ),
                           Text(
                             '87%',
-                            style: theme.textTheme.muted.copyWith(
+                            style: theme.textTheme.labelSmall?.copyWith(
                               color: Colors.green.shade700,
                               fontSize: 12,
                             ),
@@ -89,7 +93,7 @@ class MonthlySnapshot extends StatelessWidget {
                 SizedBox(height: 8),
                 Text(
                   '${context.strings.overviewAvgDailySpend}: IDR 32K',
-                  style: theme.textTheme.muted.copyWith(
+                  style: theme.textTheme.labelSmall?.copyWith(
                     color: Colors.green.shade700,
                     fontSize: 12,
                   ),
@@ -102,7 +106,7 @@ class MonthlySnapshot extends StatelessWidget {
             child: Text(
               context.strings.overviewWithinBudgetCaption,
               textAlign: TextAlign.center,
-              style: theme.textTheme.muted.copyWith(
+              style: theme.textTheme.labelSmall?.copyWith(
                 fontSize: 12,
                 color: Colors.green.shade800,
               ),

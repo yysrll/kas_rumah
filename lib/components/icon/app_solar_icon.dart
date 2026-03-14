@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutty_solar_icons/solar_icons_flutter.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/core/utils/context/context_ext.dart';
 
 class AppSolarIcon extends StatelessWidget {
   const AppSolarIcon(
@@ -20,7 +20,7 @@ class AppSolarIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
     final iconColor = color ?? theme.colorScheme.primary;
     final iconSecondaryColor =
         secondaryColor ?? iconColor.withValues(alpha: 0.2);

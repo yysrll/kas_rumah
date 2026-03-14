@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/budget/presentation/budget_page.dart';
 import 'package:kas_rumah/features/insight/presentation/insight_page.dart';
 import 'package:kas_rumah/features/overview/presentation/overview_page.dart';
@@ -29,14 +28,14 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
 
     return AppScaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 4,
         selectedItemColor: theme.colorScheme.primary,
-        unselectedItemColor: theme.colorScheme.mutedForeground,
+        unselectedItemColor: theme.colorScheme.onSurfaceVariant,
         showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(

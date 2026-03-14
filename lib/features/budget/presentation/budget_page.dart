@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class BudgetPage extends StatelessWidget {
@@ -10,7 +9,7 @@ class BudgetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
     // Data dummy: Pengeluaran yang sudah terpakai
     final List<Map<String, dynamic>> budgetList = [
       {'name': 'Kebutuhan Dapur', 'amount': 2500000},
@@ -42,7 +41,7 @@ class BudgetPage extends StatelessWidget {
                         Expanded(
                           child: Text(
                             item['name'],
-                            style: theme.textTheme.p.copyWith(
+                            style: theme.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -53,13 +52,13 @@ class BudgetPage extends StatelessWidget {
                           children: [
                             Text(
                               "Per Bulan",
-                              style: theme.textTheme.muted.copyWith(
+                              style: theme.textTheme.bodySmall?.copyWith(
                                 fontSize: 10,
                               ),
                             ),
                             Text(
                               "IDR ${(item['amount'] / 1000).toStringAsFixed(0)}K",
-                              style: theme.textTheme.small.copyWith(
+                              style: theme.textTheme.bodySmall?.copyWith(
                                 color: theme.colorScheme.primary,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -83,10 +82,10 @@ class BudgetPage extends StatelessWidget {
           Icon(
             LucideIcons.wallet,
             size: 48,
-            color: context.shadTheme.colorScheme.muted,
+            color: context.theme.colorScheme.onSurface,
           ),
           const SizedBox(height: 16),
-          Text("Belum ada anggaran", style: context.shadTheme.textTheme.muted),
+          Text("Belum ada anggaran", style: context.theme.textTheme.bodySmall),
         ],
       ),
     );

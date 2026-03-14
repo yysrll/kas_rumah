@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/overview/components/transaction_overview_item.dart';
 
 class TransactionOverview extends StatelessWidget {
@@ -8,14 +7,8 @@ class TransactionOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.card,
-        borderRadius: theme.radius,
-        border: Border.all(color: theme.colorScheme.border),
-      ),
+    final theme = context.theme;
+    return Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,14 +18,14 @@ class TransactionOverview extends StatelessWidget {
               Expanded(
                 child: Text(
                   context.strings.overviewTransactionsCaption,
-                  style: theme.textTheme.p.copyWith(
-                    color: theme.colorScheme.cardForeground,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.surfaceContainerLow,
                   ),
                 ),
               ),
               Text(
                 context.strings.seeMore,
-                style: theme.textTheme.small.copyWith(
+                style: theme.textTheme.labelSmall?.copyWith(
                   color: theme.colorScheme.primary,
                 ),
               ),
@@ -40,7 +33,7 @@ class TransactionOverview extends StatelessWidget {
           ),
           Text(
             'Maret 2026',
-            style: theme.textTheme.p.copyWith(
+            style: theme.textTheme.labelSmall?.copyWith(
               fontSize: 12,
               color: Colors.grey.shade600,
             ),

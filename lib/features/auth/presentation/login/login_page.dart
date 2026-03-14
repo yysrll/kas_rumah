@@ -40,46 +40,59 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 AppAsset.logo.svg(width: 120, height: 120),
                 const SizedBox(height: 24),
-                Text(
-                  context.strings.loginTitle,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(height: 24),
-                KasTextFormField(
-                  controller: _emailController,
-                  labelText: "Email",
-                ),
-                const SizedBox(height: 16),
-                ValueListenableBuilder(
-                  valueListenable: _obscurePassword,
-                  builder: (context, obscurePassword, _) {
-                    return KasTextFormField(
-                      controller: _passwordController,
-                      labelText: "Password",
-                      obscureText: obscurePassword,
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          obscurePassword
-                              ? Icons.visibility
-                              : Icons.visibility_off,
+                Card.outlined(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          context.strings.loginTitle,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
-                        onPressed: () =>
-                            _obscurePassword.value = !_obscurePassword.value,
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
-                const SizedBox(height: 24),
-                FilledButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {}
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => WorkspacePage()),
-                      (Route<dynamic> route) => false,
-                    );
-                  },
-                  child: const Text("Masuk dengan Google"),
+                        const SizedBox(height: 24),
+                        KasTextFormField(
+                          controller: _emailController,
+                          labelText: "Email",
+                        ),
+                        const SizedBox(height: 16),
+                        ValueListenableBuilder(
+                          valueListenable: _obscurePassword,
+                          builder: (context, obscurePassword, _) {
+                            return KasTextFormField(
+                              controller: _passwordController,
+                              labelText: "Password",
+                              obscureText: obscurePassword,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  obscurePassword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () => _obscurePassword.value =
+                                    !_obscurePassword.value,
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 24),
+                        SizedBox(
+                          width: double.infinity,
+                          child: FilledButton(
+                            onPressed: () {
+                              if (_formKey.currentState?.validate() ?? false) {}
+                              Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                  builder: (context) => WorkspacePage(),
+                                ),
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                            child: const Text("Masuk"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

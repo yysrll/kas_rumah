@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/auth/presentation/login/login_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
@@ -51,6 +50,7 @@ class _SplashPageState extends State<SplashPage>
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.theme;
     return AppScaffold(
       body: FadeTransition(
         opacity: _opacity,
@@ -60,23 +60,18 @@ class _SplashPageState extends State<SplashPage>
             children: [
               AppAsset.logo.svg(width: 120, height: 120),
               const SizedBox(height: 24),
-              Text(context.strings.appTitle, style: context.textTheme.h1),
+              Text(context.strings.appTitle, style: theme.textTheme.titleLarge),
               const SizedBox(height: 8),
               Text(
                 context.strings.taglineAlternative,
                 textAlign: TextAlign.center,
-                style: context.textTheme.p,
+                style: context.textTheme.bodyMedium,
               ),
               const SizedBox(height: 48),
               SizedBox(
                 width: 20,
                 height: 20,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    context.shadTheme.colorScheme.primary,
-                  ),
-                ),
+                child: CircularProgressIndicator(strokeWidth: 2),
               ),
             ],
           ),

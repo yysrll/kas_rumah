@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutty_solar_icons/solar_icons_flutter.dart';
 import 'package:kas_rumah/components/icon/app_solar_icon.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
+import 'package:kas_rumah/core/utils/context/context_ext.dart';
 
 class TransactionOverviewItem extends StatelessWidget {
   const TransactionOverviewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: theme.colorScheme.card,
-        borderRadius: theme.radius,
-        border: Border.all(color: theme.colorScheme.border),
+        color: theme.colorScheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
         spacing: 16,
@@ -29,11 +28,11 @@ class TransactionOverviewItem extends StatelessWidget {
                   spacing: 12,
                   children: [
                     Expanded(
-                      child: Text('Sewa Apart', style: context.textTheme.p),
+                      child: Text('Sewa Apart', style: context.textTheme.titleMedium),
                     ),
                     Text(
                       '-IDR 500K',
-                      style: context.textTheme.small.copyWith(
+                      style: context.textTheme.labelSmall?.copyWith(
                         fontSize: 12,
                         color: Colors.red.shade600,
                         fontWeight: FontWeight.w500,
@@ -45,7 +44,7 @@ class TransactionOverviewItem extends StatelessWidget {
                   'Sewa Apart bulan Maret 2026',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.small.copyWith(
+                  style: context.textTheme.labelSmall?.copyWith(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey,
@@ -56,7 +55,7 @@ class TransactionOverviewItem extends StatelessWidget {
                   '1 Maret 2026',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.small.copyWith(
+                  style: context.textTheme.labelSmall?.copyWith(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey,

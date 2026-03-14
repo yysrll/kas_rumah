@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/insight/components/budget_detail_list.dart';
 import 'package:kas_rumah/features/insight/components/budget_usage_chart.dart';
 import 'package:kas_rumah/components/input/month_filter_form.dart';
@@ -12,13 +11,13 @@ class InsightPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.shadTheme;
+    final theme = context.theme;
     // Data dummy: Pengeluaran yang sudah terpakai
     final List<BudgetData> chartData = [
       BudgetData('Housing', 4500000, theme.colorScheme.primary),
       BudgetData('Food', 2000000, const Color(0xFFfbbf24)), // Amber
       BudgetData('Transport', 800000, const Color(0xFF38bdf8)), // Sky
-      BudgetData('Others', 500000, theme.colorScheme.muted),
+      BudgetData('Others', 500000, theme.colorScheme.secondary),
     ];
     return AppScaffold(
       appBar: AppBar(title: Text(context.strings.insightsTitle)),

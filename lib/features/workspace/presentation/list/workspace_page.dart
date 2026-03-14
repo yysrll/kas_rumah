@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/core/utils/context/shad_context_ext.dart';
 import 'package:kas_rumah/features/dashboard/presentation/dashboard_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -31,9 +30,9 @@ class WorkspacePage extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  borderRadius: context.shadTheme.radius,
+                  borderRadius: BorderRadius.circular(8.0),
                   border: Border.all(
-                    color: context.shadTheme.colorScheme.border,
+                    color: context.theme.colorScheme.onPrimary,
                   ),
                 ),
                 child: Row(
@@ -42,18 +41,18 @@ class WorkspacePage extends StatelessWidget {
                     Icon(
                       LucideIcons.notebookPen,
                       size: 24,
-                      color: context.shadTheme.colorScheme.foreground,
+                      color: context.theme.colorScheme.onSurface,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Rumah Tangga ${index + 1}',
-                          style: context.textTheme.small,
+                          style: context.textTheme.bodySmall,
                         ),
                         Text(
                           'Rumah Tangga deskription ${index + 1}',
-                          style: context.textTheme.muted,
+                          style: context.textTheme.labelSmall,
                         ),
                       ],
                     ),
