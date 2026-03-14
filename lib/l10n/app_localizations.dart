@@ -118,59 +118,59 @@ abstract class AppLocalizations {
   /// **'Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali.'**
   String get taglineAlternative;
 
-  /// No description provided for @loginTitle.
+  /// No description provided for @titleLogin.
   ///
   /// In id, this message translates to:
   /// **'Masuk ke akun Anda'**
-  String get loginTitle;
+  String get titleLogin;
 
-  /// No description provided for @emailLabel.
-  ///
-  /// In id, this message translates to:
-  /// **'Email'**
-  String get emailLabel;
-
-  /// No description provided for @emailMissingError.
-  ///
-  /// In id, this message translates to:
-  /// **'Email tidak boleh kosong'**
-  String get emailMissingError;
-
-  /// No description provided for @emailInvalidError.
-  ///
-  /// In id, this message translates to:
-  /// **'Email tidak valid'**
-  String get emailInvalidError;
-
-  /// No description provided for @passwordLabel.
-  ///
-  /// In id, this message translates to:
-  /// **'Kata sandi'**
-  String get passwordLabel;
-
-  /// No description provided for @loginButton.
-  ///
-  /// In id, this message translates to:
-  /// **'Masuk'**
-  String get loginButton;
-
-  /// No description provided for @registerButton.
-  ///
-  /// In id, this message translates to:
-  /// **'Daftar'**
-  String get registerButton;
-
-  /// No description provided for @registerTitle.
+  /// No description provided for @titleRegister.
   ///
   /// In id, this message translates to:
   /// **'Buat akun baru'**
-  String get registerTitle;
+  String get titleRegister;
 
-  /// No description provided for @nameLabel.
+  /// No description provided for @buttonLogin.
+  ///
+  /// In id, this message translates to:
+  /// **'Masuk'**
+  String get buttonLogin;
+
+  /// No description provided for @buttonRegister.
+  ///
+  /// In id, this message translates to:
+  /// **'Daftar'**
+  String get buttonRegister;
+
+  /// No description provided for @labelEmail.
+  ///
+  /// In id, this message translates to:
+  /// **'Email'**
+  String get labelEmail;
+
+  /// No description provided for @errorEmailRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Email tidak boleh kosong'**
+  String get errorEmailRequired;
+
+  /// No description provided for @errorEmailInvalid.
+  ///
+  /// In id, this message translates to:
+  /// **'Email tidak valid'**
+  String get errorEmailInvalid;
+
+  /// No description provided for @labelPassword.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi'**
+  String get labelPassword;
+
+  /// No description provided for @labelName.
   ///
   /// In id, this message translates to:
   /// **'Nama'**
-  String get nameLabel;
+  String get labelName;
 
   /// No description provided for @confirmPasswordLabel.
   ///
@@ -178,11 +178,17 @@ abstract class AppLocalizations {
   /// **'Konfirmasi kata sandi'**
   String get confirmPasswordLabel;
 
-  /// No description provided for @alreadyHaveAccount.
+  /// No description provided for @actionAlreadyHaveAccount.
   ///
   /// In id, this message translates to:
   /// **'Sudah punya akun? Masuk'**
-  String get alreadyHaveAccount;
+  String get actionAlreadyHaveAccount;
+
+  /// No description provided for @actionDontHaveAccount.
+  ///
+  /// In id, this message translates to:
+  /// **'Belum punya akun? Daftar'**
+  String get actionDontHaveAccount;
 
   /// No description provided for @workspaceTitle.
   ///

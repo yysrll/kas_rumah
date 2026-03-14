@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/components/input/kas_text_form_field.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class PasswordInput extends StatefulWidget {
   const PasswordInput({super.key, this.controller});
@@ -16,22 +16,14 @@ class _PasswordInputState extends State<PasswordInput> {
 
   @override
   Widget build(BuildContext context) {
-    return ShadInput(
+    return KasTextFormField(
       controller: widget.controller,
-      placeholder: Text(context.strings.passwordLabel),
+      labelText: context.strings.labelPassword,
       obscureText: obscure,
-      leading: const Padding(
-        padding: EdgeInsets.all(4.0),
-        child: Icon(LucideIcons.lock),
-      ),
-      trailing: ShadIconButton(
-        width: 24,
-        height: 24,
-        padding: EdgeInsets.zero,
-        icon: Icon(obscure ? LucideIcons.eyeOff : LucideIcons.eye, size: 16),
-        onPressed: () {
-          setState(() => obscure = !obscure);
-        },
+      prefixIcon: Icon(Icons.lock),
+      suffixIcon: IconButton(
+        icon: Icon(obscure ? Icons.visibility : Icons.visibility_off),
+        onPressed: () => setState(() => obscure = !obscure),
       ),
     );
   }

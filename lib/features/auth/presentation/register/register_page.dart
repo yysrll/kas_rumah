@@ -5,18 +5,17 @@ import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/components/email_input.dart';
 import 'package:kas_rumah/features/auth/components/password_input.dart';
-import 'package:kas_rumah/features/auth/presentation/register/register_page.dart';
 import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -46,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       Text(
-                        context.strings.titleLogin,
+                        context.strings.titleRegister,
                         style: context.textTheme.titleLarge?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
@@ -68,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                               (Route<dynamic> route) => false,
                             );
                           },
-                          child: const Text("Masuk"),
+                          child: Text(context.strings.buttonRegister),
                         ),
                       ),
                     ],
@@ -77,13 +76,9 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
-                  child: Text(context.strings.actionDontHaveAccount),
+                  child: Text(context.strings.actionAlreadyHaveAccount),
                 ),
               ],
             ),

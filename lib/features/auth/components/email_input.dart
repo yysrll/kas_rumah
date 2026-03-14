@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/components/input/kas_text_form_field.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class EmailInput extends StatelessWidget {
   const EmailInput({super.key, this.controller});
@@ -9,22 +9,20 @@ class EmailInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShadInputFormField(
+    return KasTextFormField(
       controller: controller,
-      placeholder: Text(context.strings.emailLabel),
-      leading: const Padding(
-        padding: EdgeInsets.all(4.0),
-        child: Icon(LucideIcons.mail),
-      ),
+      labelText: context.strings.labelEmail,
+      prefixIcon: Icon(Icons.mail),
       validator: (value) {
-        if (value.trim().isEmpty) {
-          return context.strings.emailMissingError;
+        if (value?.trim().isEmpty ?? true) {
+          return context.strings.errorEmailRequired;
         }
-        if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-          return context.strings.emailInvalidError;
+        if (!RegExp(
+          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+        ).hasMatch(value ?? '')) {
+          return context.strings.errorEmailInvalid;
         }
         return null;
-        
       },
     );
   }
