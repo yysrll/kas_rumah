@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/core/di/injector.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/presentation/pages/splash/splash_page.dart';
 import 'package:kas_rumah/l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await configureDependencies();
   runApp(const MyApp());
 }
 
