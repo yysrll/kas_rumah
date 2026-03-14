@@ -3,9 +3,9 @@ import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/auth/components/email_input.dart';
-import 'package:kas_rumah/features/auth/components/password_input.dart';
-import 'package:kas_rumah/features/auth/presentation/register/register_page.dart';
+import 'package:kas_rumah/features/auth/presentation/components/email_input.dart';
+import 'package:kas_rumah/features/auth/presentation/components/password_input.dart';
+import 'package:kas_rumah/features/auth/presentation/pages/register/register_page.dart';
 import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/auth/presentation/login/login_page.dart';
+import 'package:kas_rumah/features/auth/presentation/pages/login/login_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
 class SplashPage extends StatefulWidget {
