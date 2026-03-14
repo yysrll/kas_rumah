@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  final _obscurePassword = ValueNotifier<bool>(true);
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -48,10 +50,26 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: "Email",
                 ),
                 const SizedBox(height: 16),
-                KasTextFormField(
-                  controller: _passwordController,
-                  labelText: "Password",
+                ValueListenableBuilder(
+                  valueListenable: _obscurePassword,
+                  builder: (context, obscurePassword, _) {
+                    return KasTextFormField(
+                      controller: _passwordController,
+                      labelText: "Password",
+                      obscureText: obscurePassword,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          obscurePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () =>
+                            _obscurePassword.value = !_obscurePassword.value,
+                      ),
+                    );
+                  },
                 ),
+                const SizedBox(height: 16),
                 const SizedBox(height: 24),
                 FilledButton(
                   onPressed: () {
