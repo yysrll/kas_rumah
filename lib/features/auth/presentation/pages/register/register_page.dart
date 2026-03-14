@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
@@ -8,6 +9,7 @@ import 'package:kas_rumah/features/auth/presentation/components/password_input.d
 import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
+@RoutePage()
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 

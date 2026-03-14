@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/auth/presentation/pages/login/login_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
+@RoutePage()
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
@@ -36,9 +38,7 @@ class _SplashPageState extends State<SplashPage>
     // Simulasi loading atau inisialisasi Supabase
     Timer(const Duration(seconds: 3), () {
       // Ganti dengan route navigasi kamu (misal: GoRouter.of(context).go('/login'))
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-      );
+      context.router.replace(const LoginRoute());
     });
   }
 

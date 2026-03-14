@@ -1,14 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
+import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/presentation/components/email_input.dart';
 import 'package:kas_rumah/features/auth/presentation/components/password_input.dart';
-import 'package:kas_rumah/features/auth/presentation/pages/register/register_page.dart';
 import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
+@RoutePage()
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -77,11 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
-                      ),
-                    );
+                    context.pushRoute(RegisterRoute());
                   },
                   child: Text(context.strings.actionDontHaveAccount),
                 ),
