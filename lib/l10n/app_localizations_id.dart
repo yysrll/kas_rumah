@@ -47,7 +47,24 @@ class AppLocalizationsId extends AppLocalizations {
   String get labelPassword => 'Kata sandi';
 
   @override
+  String get labelConfirmPassword => 'Konfirmasi kata sandi';
+
+  @override
+  String get errorPasswordRequired => 'Kata sandi tidak boleh kosong';
+
+  @override
+  String get errorPasswordTooShort =>
+      'Kata sandi harus terdiri dari minimal 6 karakter';
+
+  @override
+  String get errorPasswordMismatch =>
+      'Kata sandi dan konfirmasi kata sandi tidak cocok';
+
+  @override
   String get labelName => 'Nama';
+
+  @override
+  String get errorNameRequired => 'Nama tidak boleh kosong';
 
   @override
   String get confirmPasswordLabel => 'Konfirmasi kata sandi';

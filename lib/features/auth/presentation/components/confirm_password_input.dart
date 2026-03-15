@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/input/kas_text_form_field.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 
-class PasswordInput extends StatefulWidget {
-  const PasswordInput({super.key, this.controller});
+class ConfirmPasswordInput extends StatefulWidget {
+  const ConfirmPasswordInput({
+    super.key,
+    this.controller,
+    this.passwordController,
+  });
 
   final TextEditingController? controller;
+  final TextEditingController? passwordController;
 
   @override
-  State<PasswordInput> createState() => _PasswordInputState();
+  State<ConfirmPasswordInput> createState() => _ConfirmPasswordInputState();
 }
 
-class _PasswordInputState extends State<PasswordInput> {
+class _ConfirmPasswordInputState extends State<ConfirmPasswordInput> {
   bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
     return KasTextFormField(
       controller: widget.controller,
-      labelText: context.strings.labelPassword,
+      labelText: context.strings.labelConfirmPassword,
       obscureText: obscure,
       prefixIcon: Icon(Icons.lock),
       suffixIcon: IconButton(
@@ -26,11 +31,8 @@ class _PasswordInputState extends State<PasswordInput> {
         onPressed: () => setState(() => obscure = !obscure),
       ),
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return context.strings.errorPasswordRequired;
-        }
-        if (value.length < 6) {
-          return context.strings.errorPasswordTooShort;
+        if (value != widget.passwordController?.text) {
+          return context.strings.errorPasswordMismatch;
         }
         return null;
       },

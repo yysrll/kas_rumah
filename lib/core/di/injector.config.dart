@@ -14,6 +14,17 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
 
+import '../../features/auth/data/datasources/auth_remote_data_source.dart'
+    as _i107;
+import '../../features/auth/data/repositories/auth_repository_impl.dart'
+    as _i153;
+import '../../features/auth/domain/repositories/auth_repository.dart' as _i787;
+import '../../features/auth/domain/usecases/get_current_user_usecase.dart'
+    as _i17;
+import '../../features/auth/domain/usecases/sign_in_usecase.dart' as _i259;
+import '../../features/auth/domain/usecases/sign_out_usecase.dart' as _i915;
+import '../../features/auth/domain/usecases/sign_up_usecase.dart' as _i860;
+import '../../features/auth/presentation/bloc/auth_cubit.dart' as _i52;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -29,6 +40,32 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i454.SupabaseClient>(() => registerModule.supabaseClient);
+    gh.lazySingleton<_i107.AuthRemoteDataSource>(
+      () => _i107.AuthRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i787.AuthRepository>(
+      () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i17.GetCurrentUserUseCase>(
+      () => _i17.GetCurrentUserUseCase(gh<_i787.AuthRepository>()),
+    );
+    gh.factory<_i259.SignInUseCase>(
+      () => _i259.SignInUseCase(gh<_i787.AuthRepository>()),
+    );
+    gh.factory<_i915.SignOutUseCase>(
+      () => _i915.SignOutUseCase(gh<_i787.AuthRepository>()),
+    );
+    gh.factory<_i860.SignUpUseCase>(
+      () => _i860.SignUpUseCase(gh<_i787.AuthRepository>()),
+    );
+    gh.factory<_i52.AuthCubit>(
+      () => _i52.AuthCubit(
+        getCurrentUser: gh<_i17.GetCurrentUserUseCase>(),
+        signIn: gh<_i259.SignInUseCase>(),
+        signUp: gh<_i860.SignUpUseCase>(),
+        signOut: gh<_i915.SignOutUseCase>(),
+      ),
+    );
     return this;
   }
 }

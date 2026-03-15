@@ -166,11 +166,41 @@ abstract class AppLocalizations {
   /// **'Kata sandi'**
   String get labelPassword;
 
+  /// No description provided for @labelConfirmPassword.
+  ///
+  /// In id, this message translates to:
+  /// **'Konfirmasi kata sandi'**
+  String get labelConfirmPassword;
+
+  /// No description provided for @errorPasswordRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi tidak boleh kosong'**
+  String get errorPasswordRequired;
+
+  /// No description provided for @errorPasswordTooShort.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi harus terdiri dari minimal 6 karakter'**
+  String get errorPasswordTooShort;
+
+  /// No description provided for @errorPasswordMismatch.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi dan konfirmasi kata sandi tidak cocok'**
+  String get errorPasswordMismatch;
+
   /// No description provided for @labelName.
   ///
   /// In id, this message translates to:
   /// **'Nama'**
   String get labelName;
+
+  /// No description provided for @errorNameRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Nama tidak boleh kosong'**
+  String get errorNameRequired;
 
   /// No description provided for @confirmPasswordLabel.
   ///

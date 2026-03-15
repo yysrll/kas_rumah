@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/dashboard/presentation/dashboard_page.dart';
@@ -13,14 +14,19 @@ class WorkspacePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBar: AppBar(title: Text(context.strings.workspaceTitle)),
+      appBar: AppBar(
+        title: Text(context.strings.workspaceTitle),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Icon(LucideIcons.plus),
+        child: const Icon(Icons.add),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kDefaultScreenPadding),
-        child: ListView.separated(
+        child: ListView.builder(
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
@@ -29,14 +35,7 @@ class WorkspacePage extends StatelessWidget {
                   (route) => false,
                 );
               },
-              child: Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  border: Border.all(
-                    color: context.theme.colorScheme.onPrimary,
-                  ),
-                ),
+              child: KasCard(
                 child: Row(
                   spacing: 12,
                   children: [
@@ -63,7 +62,6 @@ class WorkspacePage extends StatelessWidget {
               ),
             );
           },
-          separatorBuilder: (context, index) => const SizedBox(height: 16.0),
           itemCount: 10,
         ),
       ),

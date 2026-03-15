@@ -25,7 +25,7 @@ class AppScaffold extends StatelessWidget {
         floatingActionButton: floatingActionButton,
         bottomNavigationBar: bottomNavigationBar,
         backgroundColor: theme.colorScheme.surface,
-        body: SafeArea(child: body),
+        body: body,
       ),
     );
   }
