@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
-import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
+import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/dashboard/presentation/dashboard_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -17,15 +17,19 @@ class WorkspacePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(context.strings.workspaceTitle),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+          IconButton(onPressed: () {
+            context.router.push(const ProfileRoute());
+          }, icon: const Icon(Icons.person)),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+
+        },
         child: const Icon(Icons.add),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultScreenPadding),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         child: ListView.builder(
           itemBuilder: (context, index) {
             return GestureDetector(

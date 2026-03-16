@@ -49,6 +49,10 @@ class MyApp extends StatelessWidget {
         },
         child: MaterialApp.router(
           routerConfig: _appRouter.config(),
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+            useMaterial3: true,
+          ),
           onGenerateTitle: (context) => context.strings.appTitle,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
