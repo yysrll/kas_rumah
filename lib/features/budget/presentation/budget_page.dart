@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+@RoutePage()
 class BudgetPage extends StatelessWidget {
   const BudgetPage({super.key});
 
@@ -18,59 +20,52 @@ class BudgetPage extends StatelessWidget {
       {'name': 'Tabungan Darurat', 'amount': 1000000},
       {'name': 'Hiburan Akhir Pekan', 'amount': 500000},
     ];
-    return AppScaffold(
-      appBar: AppBar(title: Text(context.strings.insightsTitle)),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultScreenPadding),
-        child: budgetList.isEmpty
-            ? _buildEmptyState(context)
-            : ListView.separated(
-                itemCount: budgetList.length,
-                separatorBuilder: (_, _) => const SizedBox(height: 12),
-                itemBuilder: (context, index) {
-                  final item = budgetList[index];
-                  return ShadCard(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Nama Budget
-                        Expanded(
-                          child: Text(
-                            item['name'],
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultScreenPadding),
+      child: budgetList.isEmpty
+          ? _buildEmptyState(context)
+          : ListView.separated(
+              itemCount: budgetList.length,
+              separatorBuilder: (_, _) => const SizedBox(height: 12),
+              itemBuilder: (context, index) {
+                final item = budgetList[index];
+                return KasCard(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Nama Budget
+                      Expanded(
+                        child: Text(
+                          item['name'],
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                        // Nominal per Bulan
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Per Bulan",
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                fontSize: 10,
-                              ),
+                      ),
+                      // Nominal per Bulan
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Per Bulan",
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 10,
                             ),
-                            Text(
-                              "IDR ${(item['amount'] / 1000).toStringAsFixed(0)}K",
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          Text(
+                            "IDR ${(item['amount'] / 1000).toStringAsFixed(0)}K",
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.bold,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-      ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
     );
   }
 

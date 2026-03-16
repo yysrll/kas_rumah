@@ -1,13 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/budget/presentation/budget_page.dart';
-import 'package:kas_rumah/features/insight/presentation/insight_page.dart';
-import 'package:kas_rumah/features/overview/presentation/overview_page.dart';
-import 'package:kas_rumah/features/transaction/presentation/transaction_page.dart';
+import 'package:kas_rumah/features/overview/components/overview_app_bar.dart';
 
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+@RoutePage()
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
@@ -16,51 +16,66 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  int _selectedIndex = 0;
-
-  // Daftar halaman untuk setiap tab
-  final List<Widget> _pages = [
-    const OverviewPage(),
-    const TransactionPage(),
-    const InsightPage(),
-    const BudgetPage(),
-  ];
+  PreferredSizeWidget _buildAppBar(int index) {
+    switch (index) {
+      case 0:
+        return const OverviewAppBar();
+      case 1:
+        return AppBar(title: Text(context.strings.transactionsTitle));
+      case 2:
+        return AppBar(title: Text(context.strings.insightsTitle));
+      case 3:
+        return AppBar(title: Text(context.strings.budgetsTitle));
+      default:
+        return AppBar(title: Text(context.strings.appTitle));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
 
-    return AppScaffold(
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 4,
-        selectedItemColor: theme.colorScheme.primary,
-        unselectedItemColor: theme.colorScheme.onSurfaceVariant,
-        showUnselectedLabels: true,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(LucideIcons.house),
-            label: context.strings.overviewTitle,
-          ),
+    return AutoTabsRouter.pageView(
+      routes: [
+        const OverviewRoute(),
+        const TransactionRoute(),
+        const InsightRoute(),
+        const BudgetRoute(),
+      ],
+      builder: (context, child, _) {
+        final tabsRouter = AutoTabsRouter.of(context);
+        return AppScaffold(
+          appBar: _buildAppBar(tabsRouter.activeIndex),
+          body: child,
+          bottomNavigationBar: BottomNavigationBar(
+            elevation: 4,
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
+            selectedItemColor: theme.colorScheme.primary,
+            unselectedItemColor: theme.colorScheme.onSurfaceVariant,
+            showUnselectedLabels: true,
+            items: [
+              BottomNavigationBarItem(
+                icon: const Icon(LucideIcons.house),
+                label: context.strings.overviewTitle,
+              ),
 
-          BottomNavigationBarItem(
-            icon: const Icon(LucideIcons.handCoins),
-            label: context.strings.transactionsTitle,
+              BottomNavigationBarItem(
+                icon: const Icon(LucideIcons.handCoins),
+                label: context.strings.transactionsTitle,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(LucideIcons.chartBar),
+                label: context.strings.insightsTitle,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(LucideIcons.wallet),
+                label: context.strings.budgetsTitle,
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(LucideIcons.chartBar),
-            label: context.strings.insightsTitle,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(LucideIcons.wallet),
-            label: context.strings.budgetsTitle,
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() => _selectedIndex = index);
-        },
-      ),
+        );
+      },
     );
   }
 }

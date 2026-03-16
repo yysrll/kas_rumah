@@ -3,7 +3,6 @@ import 'package:kas_rumah/core/route/app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
 class AppRouter extends RootStackRouter {
-
   @override
   RouteType get defaultRouteType => RouteType.material();
 
@@ -17,5 +16,15 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ProfileRoute.page),
     // WORKSPACE
     AutoRoute(page: WorkspaceRoute.page),
+    // DASHBOARD
+    AutoRoute(
+      page: DashboardRoute.page,
+      children: [
+        AutoRoute(page: OverviewRoute.page, initial: true),
+        AutoRoute(page: TransactionRoute.page),
+        AutoRoute(page: InsightRoute.page),
+        AutoRoute(page: BudgetRoute.page),
+      ],
+    ),
   ];
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/insight/components/budget_usage_chart.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class BudgetDetailList extends StatelessWidget {
   const BudgetDetailList({super.key, required this.data});
@@ -14,7 +14,7 @@ class BudgetDetailList extends StatelessWidget {
 
     final double totalUsed = data.fold(0, (sum, item) => sum + item.amount);
 
-    return ShadCard(
+    return KasCard(
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -28,7 +28,10 @@ class BudgetDetailList extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Text(item.category, style: theme.textTheme.bodySmall),
+                    child: Text(
+                      item.category,
+                      style: theme.textTheme.bodySmall,
+                    ),
                   ),
                   Text(
                     context.strings.budgetRemaining(item.amount),
@@ -39,7 +42,7 @@ class BudgetDetailList extends StatelessWidget {
                   ),
                 ],
               ),
-              ShadProgress(
+              LinearProgressIndicator(
                 value: item.amount / totalUsed,
                 borderRadius: BorderRadius.circular(4),
                 color: item.color,

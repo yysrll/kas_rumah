@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 class BudgetUsageChart extends StatelessWidget {
   const BudgetUsageChart({super.key, required this.data});
@@ -10,11 +10,11 @@ class BudgetUsageChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ShadTheme.of(context);
+    final theme = context.theme;
 
     double totalUsed = data.fold(0, (sum, item) => sum + item.amount);
 
-    return ShadCard(
+    return KasCard(
       child: SizedBox(
         height: 250,
         child: SfCircularChart(
@@ -25,11 +25,11 @@ class BudgetUsageChart extends StatelessWidget {
                 children: [
                   Text(
                     context.strings.insightTotalSpent,
-                    style: theme.textTheme.muted.copyWith(fontSize: 12),
+                    style: theme.textTheme.bodySmall?.copyWith(fontSize: 12),
                   ),
                   Text(
                     '${(totalUsed / 1000000).toStringAsFixed(1)}jt',
-                    style: theme.textTheme.h4.copyWith(
+                    style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -47,7 +47,7 @@ class BudgetUsageChart extends StatelessWidget {
               innerRadius: '75%',
               radius: '100%',
               strokeWidth: 2,
-              strokeColor: theme.colorScheme.background,
+              strokeColor: theme.colorScheme.surface,
               enableTooltip: true,
               dataLabelSettings: const DataLabelSettings(isVisible: false),
             ),

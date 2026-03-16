@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kas_rumah/core/utils/constant/dimen_constant.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/setting/presentation/setting_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -11,12 +10,8 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final theme = context.theme;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: kDefaultScreenPadding,
-        vertical: 12,
-      ),
-      child: Row(
+    return AppBar(
+      title: Row(
         spacing: 16,
         children: [
           Container(
@@ -31,7 +26,9 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: theme.colorScheme.primary,
             ),
           ),
-          Expanded(child: Text('Hi, Yusril', style: theme.textTheme.titleMedium)),
+          Expanded(
+            child: Text('Hi, Yusril', style: theme.textTheme.titleMedium),
+          ),
           GestureDetector(
             onTap: () {
               Navigator.of(
@@ -57,5 +54,5 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

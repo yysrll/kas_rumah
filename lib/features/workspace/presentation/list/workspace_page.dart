@@ -4,7 +4,6 @@ import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/dashboard/presentation/dashboard_page.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 @RoutePage()
@@ -17,15 +16,16 @@ class WorkspacePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(context.strings.workspaceTitle),
         actions: [
-          IconButton(onPressed: () {
-            context.router.push(const ProfileRoute());
-          }, icon: const Icon(Icons.person)),
+          IconButton(
+            onPressed: () {
+              context.router.push(const ProfileRoute());
+            },
+            icon: const Icon(Icons.person),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
+        onPressed: () {},
         child: const Icon(Icons.add),
       ),
       body: Padding(
@@ -34,10 +34,7 @@ class WorkspacePage extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => DashboardPage()),
-                  (route) => false,
-                );
+                context.router.replaceAll([const DashboardRoute()]);
               },
               child: KasCard(
                 child: Row(
