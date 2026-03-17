@@ -4,6 +4,7 @@ import 'package:kas_rumah/components/layouts/app_scaffold.dart';
 import 'package:kas_rumah/components/surface/kas_card.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
+import 'package:kas_rumah/features/workspace/components/create_workspace_view.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 @RoutePage()
@@ -25,7 +26,16 @@ class WorkspacePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            useSafeArea: true,
+            isScrollControlled: true,
+            builder: (context) {
+              return CreateWorkspaceView();
+            },
+          );
+        },
         child: const Icon(Icons.add),
       ),
       body: Padding(

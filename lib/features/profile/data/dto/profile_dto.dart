@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kas_rumah/features/profile/domain/profile_model.dart';
 
 part 'profile_dto.g.dart';
 
@@ -11,6 +12,10 @@ class ProfileDto {
 
   factory ProfileDto.fromJson(Map<String, dynamic> json) =>
       _$ProfileDtoFromJson(json);
-      
+
   Map<String, dynamic> toJson() => _$ProfileDtoToJson(this);
+
+  ProfileModel toModel() {
+    return ProfileModel(id: id ?? '', name: name ?? '');
+  }
 }

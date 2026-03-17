@@ -25,6 +25,12 @@ import '../../features/auth/domain/usecases/sign_in_usecase.dart' as _i259;
 import '../../features/auth/domain/usecases/sign_out_usecase.dart' as _i915;
 import '../../features/auth/domain/usecases/sign_up_usecase.dart' as _i860;
 import '../../features/auth/presentation/bloc/auth_cubit.dart' as _i52;
+import '../../features/workspace/data/datasources/workspace_remote_data_source.dart'
+    as _i509;
+import '../../features/workspace/data/repositories/workspace_repository_impl.dart'
+    as _i824;
+import '../../features/workspace/domain/repositories/workspace_repository.dart'
+    as _i268;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -42,6 +48,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i454.SupabaseClient>(() => registerModule.supabaseClient);
     gh.lazySingleton<_i107.AuthRemoteDataSource>(
       () => _i107.AuthRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i268.WorkspaceRepository>(
+      () =>
+          _i824.WorkspaceRepositoryImpl(gh<_i509.WorkspaceRemoteDataSource>()),
     );
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
