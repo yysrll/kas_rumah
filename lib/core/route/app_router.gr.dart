@@ -27,7 +27,7 @@ import 'package:kas_rumah/features/profile/presentation/pages/profile_page.dart'
     as _i6;
 import 'package:kas_rumah/features/transaction/presentation/transaction_page.dart'
     as _i9;
-import 'package:kas_rumah/features/workspace/presentation/list/workspace_page.dart'
+import 'package:kas_rumah/features/workspace/presentation/pages/list/workspace_page.dart'
     as _i10;
 
 /// generated route for
