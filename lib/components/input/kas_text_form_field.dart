@@ -5,6 +5,8 @@ class KasTextFormField extends StatelessWidget {
   final String? labelText;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final int? minLines;
+  final int? maxLines;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
 
@@ -14,6 +16,8 @@ class KasTextFormField extends StatelessWidget {
     this.labelText,
     this.obscureText = false,
     this.validator,
+    this.minLines,
+    this.maxLines = 1,
     this.prefixIcon,
     this.suffixIcon,
   });
@@ -24,6 +28,8 @@ class KasTextFormField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       validator: validator,
+      minLines: minLines,
+      maxLines: maxLines,
       decoration: InputDecoration(
         labelText: labelText,
         errorMaxLines: 3,
