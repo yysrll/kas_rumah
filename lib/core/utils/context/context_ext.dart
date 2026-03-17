@@ -18,4 +18,13 @@ extension ContextExtension on BuildContext {
 
   /// give access to Theme.of(context).textTheme
   TextTheme get textTheme => theme.textTheme;
+
+  /// give access to MediaQuery.of(context).size
+  Size get size => MediaQuery.sizeOf(this);
+
+  /// give access to MediaQuery.of(context).padding
+  EdgeInsets get padding => MediaQuery.paddingOf(this);
+
+  /// give access to MediaQuery.of(context).viewInsets
+  EdgeInsets get viewInsets => MediaQuery.viewInsetsOf(this);
 }
