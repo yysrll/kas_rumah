@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:kas_rumah/features/workspace/data/dto/workspace_dto.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -7,6 +8,7 @@ abstract class WorkspaceRemoteDataSource {
   Future<void> deleteWorkspace(String id);
 }
 
+@LazySingleton(as: WorkspaceRemoteDataSource)
 class WorkspaceRemoteDataSourceImpl implements WorkspaceRemoteDataSource {
   final SupabaseClient _supabase;
 

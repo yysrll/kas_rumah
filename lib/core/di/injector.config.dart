@@ -31,6 +31,8 @@ import '../../features/workspace/data/repositories/workspace_repository_impl.dar
     as _i824;
 import '../../features/workspace/domain/repositories/workspace_repository.dart'
     as _i268;
+import '../../features/workspace/presentation/bloc/workspace_cubit.dart'
+    as _i757;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -49,12 +51,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i107.AuthRemoteDataSource>(
       () => _i107.AuthRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i509.WorkspaceRemoteDataSource>(
+      () => _i509.WorkspaceRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i268.WorkspaceRepository>(
       () =>
           _i824.WorkspaceRepositoryImpl(gh<_i509.WorkspaceRemoteDataSource>()),
     );
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i757.WorkspaceCubit>(
+      () => _i757.WorkspaceCubit(gh<_i268.WorkspaceRepository>()),
     );
     gh.factory<_i17.GetCurrentUserUseCase>(
       () => _i17.GetCurrentUserUseCase(gh<_i787.AuthRepository>()),
