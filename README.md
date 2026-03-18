@@ -1,6 +1,6 @@
 # kas_rumah
 
-A new Flutter project.
+A new Kas Flutter project.
 
 ## Getting Started
 
