@@ -1,0 +1,362 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_id.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'l10n/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[Locale('id')];
+
+  /// No description provided for @appTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Kas Rumah'**
+  String get appTitle;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Selamat datang di Kas Rumah'**
+  String get welcomeTitle;
+
+  /// No description provided for @tagline.
+  ///
+  /// In id, this message translates to:
+  /// **'Kelola anggaran keluarga lebih rapi, demi masa depan yang lebih pasti.'**
+  String get tagline;
+
+  /// No description provided for @taglineAlternative.
+  ///
+  /// In id, this message translates to:
+  /// **'Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali.'**
+  String get taglineAlternative;
+
+  /// No description provided for @titleLogin.
+  ///
+  /// In id, this message translates to:
+  /// **'Masuk ke akun Anda'**
+  String get titleLogin;
+
+  /// No description provided for @titleRegister.
+  ///
+  /// In id, this message translates to:
+  /// **'Buat akun baru'**
+  String get titleRegister;
+
+  /// No description provided for @buttonLogin.
+  ///
+  /// In id, this message translates to:
+  /// **'Masuk'**
+  String get buttonLogin;
+
+  /// No description provided for @buttonRegister.
+  ///
+  /// In id, this message translates to:
+  /// **'Daftar'**
+  String get buttonRegister;
+
+  /// No description provided for @labelEmail.
+  ///
+  /// In id, this message translates to:
+  /// **'Email'**
+  String get labelEmail;
+
+  /// No description provided for @errorEmailRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Email tidak boleh kosong'**
+  String get errorEmailRequired;
+
+  /// No description provided for @errorEmailInvalid.
+  ///
+  /// In id, this message translates to:
+  /// **'Email tidak valid'**
+  String get errorEmailInvalid;
+
+  /// No description provided for @labelPassword.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi'**
+  String get labelPassword;
+
+  /// No description provided for @labelConfirmPassword.
+  ///
+  /// In id, this message translates to:
+  /// **'Konfirmasi kata sandi'**
+  String get labelConfirmPassword;
+
+  /// No description provided for @errorPasswordRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi tidak boleh kosong'**
+  String get errorPasswordRequired;
+
+  /// No description provided for @errorPasswordTooShort.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi harus terdiri dari minimal 6 karakter'**
+  String get errorPasswordTooShort;
+
+  /// No description provided for @errorPasswordMismatch.
+  ///
+  /// In id, this message translates to:
+  /// **'Kata sandi dan konfirmasi kata sandi tidak cocok'**
+  String get errorPasswordMismatch;
+
+  /// No description provided for @labelName.
+  ///
+  /// In id, this message translates to:
+  /// **'Nama'**
+  String get labelName;
+
+  /// No description provided for @errorNameRequired.
+  ///
+  /// In id, this message translates to:
+  /// **'Nama tidak boleh kosong'**
+  String get errorNameRequired;
+
+  /// No description provided for @confirmPasswordLabel.
+  ///
+  /// In id, this message translates to:
+  /// **'Konfirmasi kata sandi'**
+  String get confirmPasswordLabel;
+
+  /// No description provided for @actionAlreadyHaveAccount.
+  ///
+  /// In id, this message translates to:
+  /// **'Sudah punya akun? Masuk'**
+  String get actionAlreadyHaveAccount;
+
+  /// No description provided for @actionDontHaveAccount.
+  ///
+  /// In id, this message translates to:
+  /// **'Belum punya akun? Daftar'**
+  String get actionDontHaveAccount;
+
+  /// No description provided for @workspaceTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Workspace'**
+  String get workspaceTitle;
+
+  /// No description provided for @overviewTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Ikhtisar'**
+  String get overviewTitle;
+
+  /// No description provided for @overviewMonthlySnapshotTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Ringkasan Bulanan'**
+  String get overviewMonthlySnapshotTitle;
+
+  /// No description provided for @overviewAvgDailySpend.
+  ///
+  /// In id, this message translates to:
+  /// **'Rata-rata Pengeluaran Harian'**
+  String get overviewAvgDailySpend;
+
+  /// No description provided for @overviewWithinBudgetCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Kerja bagus! Pengeluaran Anda masih dalam anggaran.'**
+  String get overviewWithinBudgetCaption;
+
+  /// No description provided for @overviewExceedingBudgetCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Waspada! Pengeluaran Anda sudah melebihi anggaran.'**
+  String get overviewExceedingBudgetCaption;
+
+  /// No description provided for @overviewTransactionsCaption.
+  ///
+  /// In id, this message translates to:
+  /// **'Ringkasan Transaksi'**
+  String get overviewTransactionsCaption;
+
+  /// No description provided for @transactionsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Transaksi'**
+  String get transactionsTitle;
+
+  /// No description provided for @transactionsFilterByMonth.
+  ///
+  /// In id, this message translates to:
+  /// **'Filter berdasarkan bulan'**
+  String get transactionsFilterByMonth;
+
+  /// No description provided for @transactionsNoData.
+  ///
+  /// In id, this message translates to:
+  /// **'Belum ada transaksi untuk bulan ini.'**
+  String get transactionsNoData;
+
+  /// No description provided for @budgetsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Anggaran'**
+  String get budgetsTitle;
+
+  /// No description provided for @budgetRemaining.
+  ///
+  /// In id, this message translates to:
+  /// **'Sisa {remaining}'**
+  String budgetRemaining(num remaining);
+
+  /// No description provided for @insightsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Wawasan'**
+  String get insightsTitle;
+
+  /// No description provided for @insightTotalSpent.
+  ///
+  /// In id, this message translates to:
+  /// **'Total Terpakai'**
+  String get insightTotalSpent;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Pengaturan'**
+  String get settingsTitle;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Profil'**
+  String get profileTitle;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In id, this message translates to:
+  /// **'Lihat lebih'**
+  String get seeMore;
+
+  /// No description provided for @selectMonth.
+  ///
+  /// In id, this message translates to:
+  /// **'Pilih bulan'**
+  String get selectMonth;
+}
+
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) =>
+      <String>['id'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'id':
+      return AppLocalizationsId();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
+}

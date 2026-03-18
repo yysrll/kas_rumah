@@ -1,0 +1,53 @@
+{
+  "appTitle": "Kas Rumah",
+  "welcomeTitle": "Selamat datang di Kas Rumah",
+  "tagline": "Kelola anggaran keluarga lebih rapi, demi masa depan yang lebih pasti.",
+  "taglineAlternative": "Bocoran pengeluaran terdeteksi, tabungan keluarga makin terkendali.",
+  "titleLogin": "Masuk ke akun Anda",
+  "titleRegister": "Buat akun baru",
+  "buttonLogin": "Masuk",
+  "buttonRegister": "Daftar",
+  "labelEmail": "Email",
+  "errorEmailRequired": "Email tidak boleh kosong",
+  "errorEmailInvalid": "Email tidak valid",
+  "labelPassword": "Kata sandi",
+  "labelConfirmPassword": "Konfirmasi kata sandi",
+  "errorPasswordRequired": "Kata sandi tidak boleh kosong",
+  "errorPasswordTooShort": "Kata sandi harus terdiri dari minimal 6 karakter",
+  "errorPasswordMismatch": "Kata sandi dan konfirmasi kata sandi tidak cocok",
+  "labelName": "Nama",
+  "errorNameRequired": "Nama tidak boleh kosong",
+  "confirmPasswordLabel": "Konfirmasi kata sandi",
+  "actionAlreadyHaveAccount": "Sudah punya akun? Masuk",
+  "actionDontHaveAccount": "Belum punya akun? Daftar",
+  "workspaceTitle": "Workspace",
+  "overviewTitle": "Ikhtisar",
+  "overviewMonthlySnapshotTitle": "Ringkasan Bulanan",
+  "overviewAvgDailySpend": "Rata-rata Pengeluaran Harian",
+  "overviewWithinBudgetCaption": "Kerja bagus! Pengeluaran Anda masih dalam anggaran.",
+  "overviewExceedingBudgetCaption": "Waspada! Pengeluaran Anda sudah melebihi anggaran.",
+  "overviewTransactionsCaption": "Ringkasan Transaksi",
+  "transactionsTitle": "Transaksi",
+  "transactionsFilterByMonth": "Filter berdasarkan bulan",
+  "transactionsNoData": "Belum ada transaksi untuk bulan ini.",
+  "budgetsTitle": "Anggaran",
+  "budgetRemaining": "Sisa {remaining}",
+  "@budgetRemaining": {
+    "placeholders": {
+      "remaining": {
+        "type": "num",
+        "format": "compactCurrency",
+        "optionalParameters": {
+          "symbol": "IDR ",
+          "decimalDigits": 0
+        }
+      }
+    }
+  },
+  "insightsTitle": "Wawasan",
+  "insightTotalSpent": "Total Terpakai",
+  "settingsTitle": "Pengaturan",
+  "profileTitle": "Profil",
+  "seeMore": "Lihat lebih",
+  "selectMonth": "Pilih bulan"
+}
