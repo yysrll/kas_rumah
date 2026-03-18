@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kas_rumah/core/errors/failure.dart';
@@ -19,6 +21,7 @@ class WorkspaceRepositoryImpl implements WorkspaceRepository {
       final models = dtos.map((dto) => dto.toModel()).toList();
       return Right(models);
     } catch (e) {
+      log('Error fetching workspaces: $e');
       return Left(ServerFailure(e.toString()));
     }
   }

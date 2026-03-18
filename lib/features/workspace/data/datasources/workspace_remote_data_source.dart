@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:injectable/injectable.dart';
 import 'package:kas_rumah/features/workspace/data/dto/workspace_dto.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -16,25 +18,20 @@ class WorkspaceRemoteDataSourceImpl implements WorkspaceRemoteDataSource {
 
   @override
   Future<List<WorkspaceDto>> getWorkspaces() async {
-    final response = await _supabase
-        .from('workspaces')
-        .select('''
-            id,
-            owner_id,
-            name,
-            currency,
-            description,
-            profiles!workspaces_owner_id_fkey (
-              name
-            )
-          ''')
-        .eq('owner_id', _supabase.auth.currentUser!.id);
+    final response = await _supabase.from('workspaces').select('''
+      id,
+      name,
+      currency,
+      description,
+      owner_id
+    ''');
+
+    log('Fetched workspaces userId: ${_supabase.auth.currentUser!.id}');
+    log('Fetched workspaces response: $response');
     final list = (response as List)
-        .map(
-          (row) =>
-              WorkspaceDto.fromJson(row['workspaces'] as Map<String, dynamic>),
-        )
+        .map((json) => WorkspaceDto.fromJson(json as Map<String, dynamic>))
         .toList();
+    log('Fetched workspaces: $list');
     return list;
   }
 
