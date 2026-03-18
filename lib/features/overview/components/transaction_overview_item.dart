@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutty_solar_icons/solar_icons_flutter.dart';
-import 'package:kas_rumah/components/icon/app_solar_icon.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 
 class TransactionOverviewItem extends StatelessWidget {
@@ -19,7 +17,7 @@ class TransactionOverviewItem extends StatelessWidget {
       child: Row(
         spacing: 16,
         children: [
-          AppSolarIcon(SolarIcons.HomeSmile),
+          const Icon(Icons.home),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,7 +26,10 @@ class TransactionOverviewItem extends StatelessWidget {
                   spacing: 12,
                   children: [
                     Expanded(
-                      child: Text('Sewa Apart', style: context.textTheme.titleMedium),
+                      child: Text(
+                        'Sewa Apart',
+                        style: context.textTheme.titleMedium,
+                      ),
                     ),
                     Text(
                       '-IDR 500K',
