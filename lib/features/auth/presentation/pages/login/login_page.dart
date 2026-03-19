@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
         }
 
         if (state is AuthAuthenticated) {
-          context.router.replace(const WorkspaceRoute());
+          context.router.replaceAll([const WorkspaceRoute()]);
         } else if (state is AuthError) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
