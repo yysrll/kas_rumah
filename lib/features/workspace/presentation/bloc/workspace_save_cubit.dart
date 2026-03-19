@@ -6,10 +6,10 @@ import 'package:kas_rumah/features/workspace/domain/params/save_workspace_param.
 import 'package:kas_rumah/features/workspace/domain/repositories/workspace_repository.dart';
 
 @injectable
-class SaveWorkspaceCubit extends Cubit<ResourceState<WorkspaceModel>> {
+class WorkspaceSaveCubit extends Cubit<ResourceState<WorkspaceModel>> {
   final WorkspaceRepository _repository;
 
-  SaveWorkspaceCubit(this._repository) : super(const ResourceState.initial());
+  WorkspaceSaveCubit(this._repository) : super(const ResourceState.initial());
 
   Future<void> saveWorkspace({
     String? id,

@@ -7,7 +7,7 @@ import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/state/resource_state.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/workspace/domain/models/workspace_model.dart';
-import 'package:kas_rumah/features/workspace/presentation/bloc/save_workspace_cubit.dart';
+import 'package:kas_rumah/features/workspace/presentation/bloc/workspace_save_cubit.dart';
 import 'package:kas_rumah/features/workspace/presentation/bloc/workspace_cubit.dart';
 import 'package:kas_rumah/features/workspace/presentation/components/save_workspace_view.dart';
 import 'package:kas_rumah/features/workspace/presentation/components/workspace_list_loading_view.dart';
@@ -25,7 +25,7 @@ class WorkspacePage extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<WorkspaceCubit>()..getWorkspaces(),
         ),
-        BlocProvider(create: (context) => getIt<SaveWorkspaceCubit>()),
+        BlocProvider(create: (context) => getIt<WorkspaceSaveCubit>()),
       ],
       child: _WorkspacePageView(),
     );
@@ -37,7 +37,7 @@ class _WorkspacePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SaveWorkspaceCubit, ResourceState<WorkspaceModel>>(
+    return BlocListener<WorkspaceSaveCubit, ResourceState<WorkspaceModel>>(
       listener: (context, state) => state.maybeWhen(
         orElse: () => context.loaderOverlay.hide(),
         loading: () => context.loaderOverlay.show(),
@@ -80,7 +80,7 @@ class _WorkspacePageView extends StatelessWidget {
               builder: (modalContext) {
                 return SaveWorkspaceView(
                   onSave: ({description, id, required name}) {
-                    context.read<SaveWorkspaceCubit>().saveWorkspace(
+                    context.read<WorkspaceSaveCubit>().saveWorkspace(
                       id: id,
                       name: name,
                       description: description,
