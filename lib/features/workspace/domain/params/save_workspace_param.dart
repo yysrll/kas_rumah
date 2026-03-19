@@ -6,13 +6,11 @@ part 'save_workspace_param.g.dart';
 class SaveWorkspaceParam {
   final String? id;
   final String name;
-  final String currency;
   final String? description;
 
   SaveWorkspaceParam({
     this.id,
     required this.name,
-    required this.currency,
     this.description,
   });
 

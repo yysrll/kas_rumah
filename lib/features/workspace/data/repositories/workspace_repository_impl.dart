@@ -29,8 +29,19 @@ class WorkspaceRepositoryImpl implements WorkspaceRepository {
   @override
   Future<Either<Failure, WorkspaceModel>> saveWorkspace(
     SaveWorkspaceParam param,
-  ) {
-    throw UnimplementedError();
+  ) async {
+    try {
+      final dto = await _remote.saveWorkspace(
+        param.id,
+        param.name,
+        param.description,
+      );
+      final model = dto.toModel();
+      return Right(model);
+    } catch (e) {
+      log('Error saving workspace: $e');
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
   @override

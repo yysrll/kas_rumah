@@ -6,27 +6,33 @@ import 'package:kas_rumah/features/workspace/presentation/components/workspace_i
 
 class WorkspaceListView extends StatelessWidget {
   final List<WorkspaceModel> workspaces;
+  final Future<void> Function() onRefresh;
 
-  const WorkspaceListView({super.key, this.workspaces = const []});
+  const WorkspaceListView({
+    super.key,
+    this.workspaces = const [],
+    required this.onRefresh,
+  });
 
   @override
   Widget build(BuildContext context) {
     if (workspaces.isEmpty) {
-      return const Center(
-        child: Text('No workspaces available.'),
-      );
+      return const Center(child: Text('No workspaces available.'));
     }
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        final workspace = workspaces[index];
-        return GestureDetector(
-          onTap: () {
-            context.router.replaceAll([const DashboardRoute()]);
-          },
-          child: WorkspaceItemView(workspace: workspace),
-        );
-      },
-      itemCount: workspaces.length,
+    return RefreshIndicator.adaptive(
+      onRefresh: onRefresh,
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          final workspace = workspaces[index];
+          return GestureDetector(
+            onTap: () {
+              context.router.replaceAll([const DashboardRoute()]);
+            },
+            child: WorkspaceItemView(workspace: workspace),
+          );
+        },
+        itemCount: workspaces.length,
+      ),
     );
   }
 }
