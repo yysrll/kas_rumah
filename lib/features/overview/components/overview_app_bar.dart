@@ -2,8 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
+import 'package:kas_rumah/core/state/resource_state.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
+import 'package:kas_rumah/features/auth/domain/models/user_model.dart';
+import 'package:kas_rumah/features/profile/presentation/bloc/profile_cubit.dart';
 import 'package:kas_rumah/features/setting/presentation/setting_page.dart';
+import 'package:kas_rumah/features/workspace/domain/models/workspace_model.dart';
 import 'package:kas_rumah/features/workspace/presentation/bloc/workspace_selection_cubit.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -34,7 +38,15 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Hi, Yusril', style: theme.textTheme.titleMedium),
+                BlocBuilder<ProfileCubit, ResourceState<UserModel>>(
+                  builder: (context, state) => state.maybeWhen(
+                    orElse: () => const SizedBox.shrink(),
+                    success: (user) => Text(
+                      'Hi, ${user.name}',
+                      style: theme.textTheme.titleMedium,
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () async {
                     await context
@@ -53,12 +65,21 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
                         color: theme.colorScheme.primary,
                       ),
                       Flexible(
-                        child: Text(
-                          'Workspace 1',
-                          style: theme.textTheme.titleSmall?.copyWith(
-                            color: theme.colorScheme.primary,
-                          ),
-                        ),
+                        child:
+                            BlocBuilder<
+                              WorkspaceSelectionCubit,
+                              ResourceState<WorkspaceModel>
+                            >(
+                              builder: (context, state) => state.maybeWhen(
+                                orElse: () => const SizedBox.shrink(),
+                                success: (workspace) => Text(
+                                  workspace.name,
+                                  style: theme.textTheme.titleSmall?.copyWith(
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                ),
+                              ),
+                            ),
                       ),
                       Icon(
                         Icons.arrow_drop_down_outlined,
