@@ -40,4 +40,14 @@ class WorkspaceSelectionCubit extends Cubit<ResourceState<WorkspaceModel>> {
       emit(ResourceState.error("Failed to select workspace $e"));
     }
   }
+
+  Future<void> clearSelectedWorkspace() async {
+    emit(const ResourceState.loading());
+    try {
+      _storage.remove(KasStorageKeys.workspaceUidKey);
+      emit(const ResourceState.initial());
+    } catch (e) {
+      emit(ResourceState.error("Failed to clear selected workspace: $e"));
+    }
+  }
 }

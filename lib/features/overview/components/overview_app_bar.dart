@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/setting/presentation/setting_page.dart';
+import 'package:kas_rumah/features/workspace/presentation/bloc/workspace_selection_cubit.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -34,8 +36,13 @@ class OverviewAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 Text('Hi, Yusril', style: theme.textTheme.titleMedium),
                 GestureDetector(
-                  onTap: () {
-                    context.router.replaceAll([WorkspaceRoute()]);
+                  onTap: () async {
+                    await context
+                        .read<WorkspaceSelectionCubit>()
+                        .clearSelectedWorkspace();
+                    if (context.mounted) {
+                      context.router.replaceAll([const WorkspaceRoute()]);
+                    }
                   },
                   child: Row(
                     spacing: 8,
