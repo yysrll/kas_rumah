@@ -6,6 +6,7 @@ import 'package:kas_rumah/core/di/injector.dart';
 import 'package:kas_rumah/core/route/app_router.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:kas_rumah/features/profile/presentation/bloc/profile_cubit.dart';
 import 'package:kas_rumah/l10n/app_localizations.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
       providers: [
         // Add your BlocProviders here, e.g.:
         BlocProvider(create: (_) => getIt<AuthCubit>()),
+        BlocProvider(create: (_) => getIt<ProfileCubit>()),
       ],
       child: GlobalLoaderOverlay(
         overlayWidgetBuilder: (progress) {

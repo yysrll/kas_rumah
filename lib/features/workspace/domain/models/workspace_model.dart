@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kas_rumah/features/profile/domain/profile_model.dart';
+import 'package:kas_rumah/features/profile/domain/models/profile_model.dart';
 
 part 'workspace_model.freezed.dart';
 

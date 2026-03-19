@@ -25,6 +25,13 @@ import '../../features/auth/domain/usecases/sign_in_usecase.dart' as _i259;
 import '../../features/auth/domain/usecases/sign_out_usecase.dart' as _i915;
 import '../../features/auth/domain/usecases/sign_up_usecase.dart' as _i860;
 import '../../features/auth/presentation/bloc/auth_cubit.dart' as _i52;
+import '../../features/profile/data/datasources/profile_remote_data_source.dart'
+    as _i847;
+import '../../features/profile/data/repositories/profile_repository_impl.dart'
+    as _i334;
+import '../../features/profile/domain/repositories/profile_repository.dart'
+    as _i894;
+import '../../features/profile/presentation/bloc/profile_cubit.dart' as _i800;
 import '../../features/workspace/data/datasources/workspace_remote_data_source.dart'
     as _i509;
 import '../../features/workspace/data/repositories/workspace_repository_impl.dart'
@@ -59,6 +66,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i509.WorkspaceRemoteDataSource>(
       () => _i509.WorkspaceRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i847.ProfileRemoteDataSource>(
+      () => _i847.ProfileRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
+    gh.lazySingleton<_i894.ProfileRepository>(
+      () => _i334.ProfileRepositoryImpl(gh<_i847.ProfileRemoteDataSource>()),
+    );
     gh.lazySingleton<_i594.KasStorage>(
       () => _i594.KasStorage(gh<_i460.SharedPreferences>()),
     );
@@ -92,11 +105,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i52.AuthCubit>(
       () => _i52.AuthCubit(
-        getCurrentUser: gh<_i17.GetCurrentUserUseCase>(),
         signIn: gh<_i259.SignInUseCase>(),
         signUp: gh<_i860.SignUpUseCase>(),
         signOut: gh<_i915.SignOutUseCase>(),
       ),
+    );
+    gh.factory<_i800.ProfileCubit>(
+      () => _i800.ProfileCubit(gh<_i17.GetCurrentUserUseCase>()),
     );
     return this;
   }

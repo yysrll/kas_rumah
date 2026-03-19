@@ -2,9 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
+import 'package:kas_rumah/core/di/injector.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
+import 'package:kas_rumah/core/state/resource_state.dart';
+import 'package:kas_rumah/core/storage/kas_storage.dart';
+import 'package:kas_rumah/core/storage/kas_storage_keys.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
-import 'package:kas_rumah/features/auth/presentation/bloc/auth_cubit.dart';
+import 'package:kas_rumah/features/auth/domain/models/user_model.dart';
+import 'package:kas_rumah/features/profile/presentation/bloc/profile_cubit.dart';
 import 'package:kas_rumah/gen/assets.gen.dart';
 
 @RoutePage()
@@ -35,7 +40,7 @@ class _SplashPageState extends State<SplashPage>
 
     _controller.forward();
     if (mounted) {
-      context.read<AuthCubit>().checkAuthStatus();
+      context.read<ProfileCubit>().checkSessionAndProfile();
     }
   }
 
@@ -45,17 +50,35 @@ class _SplashPageState extends State<SplashPage>
     super.dispose();
   }
 
+  // if (state is AuthAuthenticated) {
+  //           context.router.replaceAll([const WorkspaceRoute()]);
+  //         } else if (state is AuthUnauthenticated) {
+  //           context.router.replaceAll([const LoginRoute()]);
+  //         }
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
-    return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
-        if (state is AuthAuthenticated) {
-          context.router.replaceAll([const WorkspaceRoute()]);
-        } else if (state is AuthUnauthenticated) {
+    return BlocListener<ProfileCubit, ResourceState<UserModel>>(
+      listener: (context, state) => state.maybeWhen(
+        orElse: () => {},
+        error: (message) {
           context.router.replaceAll([const LoginRoute()]);
-        }
-      },
+          return;
+        },
+        success: (profile) {
+          final kasStorage = getIt<KasStorage>();
+          final workspaceId = kasStorage.getString(
+            KasStorageKeys.workspaceUidKey,
+          );
+
+          if (workspaceId == null || workspaceId.isEmpty) {
+            context.router.replaceAll([const LoginRoute()]);
+          } else {
+            context.router.replaceAll([const WorkspaceRoute()]);
+          }
+          return;
+        },
+      ),
       child: AppScaffold(
         body: FadeTransition(
           opacity: _opacity,

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kas_rumah/features/profile/domain/profile_model.dart';
+import 'package:kas_rumah/features/profile/domain/models/profile_model.dart';
 
 part 'profile_dto.g.dart';
 
