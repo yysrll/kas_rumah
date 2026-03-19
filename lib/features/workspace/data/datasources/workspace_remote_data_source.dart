@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class WorkspaceRemoteDataSource {
   Future<List<WorkspaceDto>> getWorkspaces();
+  Future<WorkspaceDto> getWorkspaceById(String id);
   Future<WorkspaceDto> saveWorkspace(
     String? uid,
     String name,
@@ -32,6 +33,23 @@ class WorkspaceRemoteDataSourceImpl implements WorkspaceRemoteDataSource {
         .map((json) => WorkspaceDto.fromJson(json as Map<String, dynamic>))
         .toList();
     return list;
+  }
+
+  @override
+  Future<WorkspaceDto> getWorkspaceById(String id) async {
+    final response = await _supabase
+        .from('workspaces')
+        .select('''
+            id,
+            name,
+            currency,
+            description,
+            owner_id
+          ''')
+        .eq('id', id)
+        .single(); // Kita gunakan single karena ID bersifat unik
+
+    return WorkspaceDto.fromJson(response);
   }
 
   @override

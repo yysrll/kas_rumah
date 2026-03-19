@@ -79,9 +79,6 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i824.WorkspaceRepositoryImpl(gh<_i509.WorkspaceRemoteDataSource>()),
     );
-    gh.factory<_i1040.WorkspaceSelectionCubit>(
-      () => _i1040.WorkspaceSelectionCubit(gh<_i594.KasStorage>()),
-    );
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
     );
@@ -90,6 +87,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i670.WorkspaceSaveCubit>(
       () => _i670.WorkspaceSaveCubit(gh<_i268.WorkspaceRepository>()),
+    );
+    gh.factory<_i1040.WorkspaceSelectionCubit>(
+      () => _i1040.WorkspaceSelectionCubit(
+        gh<_i268.WorkspaceRepository>(),
+        gh<_i594.KasStorage>(),
+      ),
     );
     gh.factory<_i17.GetCurrentUserUseCase>(
       () => _i17.GetCurrentUserUseCase(gh<_i787.AuthRepository>()),

@@ -27,6 +27,18 @@ class WorkspaceRepositoryImpl implements WorkspaceRepository {
   }
 
   @override
+  Future<Either<Failure, WorkspaceModel>> getWorkspaceById(String id) async {
+    try {
+      final dto = await _remote.getWorkspaceById(id);
+      final model = dto.toModel();
+      return Right(model);
+    } catch (e) {
+      log('Error fetching workspace by ID: $e');
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
   Future<Either<Failure, WorkspaceModel>> saveWorkspace(
     SaveWorkspaceParam param,
   ) async {

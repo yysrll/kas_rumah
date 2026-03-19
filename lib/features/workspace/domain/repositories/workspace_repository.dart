@@ -5,6 +5,7 @@ import 'package:kas_rumah/features/workspace/domain/params/save_workspace_param.
 
 abstract class WorkspaceRepository {
   Future<Either<Failure, List<WorkspaceModel>>> getWorkspaces();
+  Future<Either<Failure, WorkspaceModel>> getWorkspaceById(String id);
   Future<Either<Failure, WorkspaceModel>> saveWorkspace(
     SaveWorkspaceParam param,
   );

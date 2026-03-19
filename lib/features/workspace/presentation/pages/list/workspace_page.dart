@@ -27,7 +27,6 @@ class WorkspacePage extends StatelessWidget {
           create: (context) => getIt<WorkspaceCubit>()..getWorkspaces(),
         ),
         BlocProvider(create: (context) => getIt<WorkspaceSaveCubit>()),
-        BlocProvider(create: (context) => getIt<WorkspaceSelectionCubit>()),
       ],
       child: _WorkspacePageView(),
     );
