@@ -62,7 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
         }
 
         if (state is AuthAuthenticated) {
-          context.router.replace(const WorkspaceRoute());
+          context.router.replaceAll([const LoginRoute()]);
         } else if (state is AuthError) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
