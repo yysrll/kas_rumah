@@ -2,11 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kas_rumah/components/layouts/app_scaffold.dart';
-import 'package:kas_rumah/core/di/injector.dart';
 import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/core/state/resource_state.dart';
-import 'package:kas_rumah/core/storage/kas_storage.dart';
-import 'package:kas_rumah/core/storage/kas_storage_keys.dart';
 import 'package:kas_rumah/core/utils/context/context_ext.dart';
 import 'package:kas_rumah/features/auth/domain/models/user_model.dart';
 import 'package:kas_rumah/features/profile/presentation/bloc/profile_cubit.dart';
@@ -52,11 +49,6 @@ class _SplashPageState extends State<SplashPage>
     super.dispose();
   }
 
-  // if (state is AuthAuthenticated) {
-  //           context.router.replaceAll([const WorkspaceRoute()]);
-  //         } else if (state is AuthUnauthenticated) {
-  //           context.router.replaceAll([const LoginRoute()]);
-  //         }
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
@@ -82,64 +74,42 @@ class _SplashPageState extends State<SplashPage>
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Failed to fetch workspace: $message')),
               );
-              context.router.replaceAll([const LoginRoute()]);
+              context.router.replaceAll([const WorkspaceRoute()]);
               return;
             },
             success: (workspace) {
-              context.router.replaceAll([const WorkspaceRoute()]);
+              context.router.replaceAll([const DashboardRoute()]);
               return;
             },
           ),
         ),
       ],
-      child: BlocListener<ProfileCubit, ResourceState<UserModel>>(
-        listener: (context, state) => state.maybeWhen(
-          orElse: () => {},
-          error: (message) {
-            context.router.replaceAll([const LoginRoute()]);
-            return;
-          },
-          success: (profile) {
-            final kasStorage = getIt<KasStorage>();
-            final workspaceId = kasStorage.getString(
-              KasStorageKeys.workspaceUidKey,
-            );
-
-            if (workspaceId == null || workspaceId.isEmpty) {
-              context.router.replaceAll([const LoginRoute()]);
-            } else {
-              context.router.replaceAll([const WorkspaceRoute()]);
-            }
-            return;
-          },
-        ),
-        child: AppScaffold(
-          body: FadeTransition(
-            opacity: _opacity,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AppAsset.logo.svg(width: 120, height: 120),
-                  const SizedBox(height: 24),
-                  Text(
-                    context.strings.appTitle,
-                    style: theme.textTheme.titleLarge,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    context.strings.taglineAlternative,
-                    textAlign: TextAlign.center,
-                    style: context.textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 48),
-                  SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
-                ],
-              ),
+      child: AppScaffold(
+        body: FadeTransition(
+          opacity: _opacity,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppAsset.logo.svg(width: 120, height: 120),
+                const SizedBox(height: 24),
+                Text(
+                  context.strings.appTitle,
+                  style: theme.textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  context.strings.taglineAlternative,
+                  textAlign: TextAlign.center,
+                  style: context.textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 48),
+                SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+              ],
             ),
           ),
         ),
