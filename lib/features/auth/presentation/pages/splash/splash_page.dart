@@ -51,9 +51,9 @@ class _SplashPageState extends State<SplashPage>
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthAuthenticated) {
-          context.router.replace(const WorkspaceRoute());
+          context.router.replaceAll([const WorkspaceRoute()]);
         } else if (state is AuthUnauthenticated) {
-          context.router.replace(const LoginRoute());
+          context.router.replaceAll([const LoginRoute()]);
         }
       },
       child: AppScaffold(
