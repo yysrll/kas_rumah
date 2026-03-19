@@ -1,16 +1,16 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:kas_rumah/core/route/app_router.gr.dart';
 import 'package:kas_rumah/features/workspace/domain/models/workspace_model.dart';
 import 'package:kas_rumah/features/workspace/presentation/components/workspace_item_view.dart';
 
 class WorkspaceListView extends StatelessWidget {
   final List<WorkspaceModel> workspaces;
+  final void Function(WorkspaceModel) onTap;
   final Future<void> Function() onRefresh;
 
   const WorkspaceListView({
     super.key,
     this.workspaces = const [],
+    required this.onTap,
     required this.onRefresh,
   });
 
@@ -25,9 +25,7 @@ class WorkspaceListView extends StatelessWidget {
         itemBuilder: (context, index) {
           final workspace = workspaces[index];
           return GestureDetector(
-            onTap: () {
-              context.router.replaceAll([const DashboardRoute()]);
-            },
+            onTap: () => onTap(workspace),
             child: WorkspaceItemView(workspace: workspace),
           );
         },

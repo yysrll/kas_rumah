@@ -35,6 +35,9 @@ import '../../features/workspace/presentation/bloc/workspace_cubit.dart'
     as _i757;
 import '../../features/workspace/presentation/bloc/workspace_save_cubit.dart'
     as _i670;
+import '../../features/workspace/presentation/bloc/workspace_selection_cubit.dart'
+    as _i1040;
+import '../storage/kas_storage.dart' as _i594;
 import 'register_module.dart' as _i291;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -56,9 +59,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i509.WorkspaceRemoteDataSource>(
       () => _i509.WorkspaceRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
     );
+    gh.lazySingleton<_i594.KasStorage>(
+      () => _i594.KasStorage(gh<_i460.SharedPreferences>()),
+    );
     gh.lazySingleton<_i268.WorkspaceRepository>(
       () =>
           _i824.WorkspaceRepositoryImpl(gh<_i509.WorkspaceRemoteDataSource>()),
+    );
+    gh.factory<_i1040.WorkspaceSelectionCubit>(
+      () => _i1040.WorkspaceSelectionCubit(gh<_i594.KasStorage>()),
     );
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
